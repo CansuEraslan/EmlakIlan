@@ -1,0 +1,45 @@
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered"><a href="/admin"><img src="{{ asset('uploads/images/' ~ app.user.image) }}" class="img-circle" alt="User Image" width="80"></a></p>
+            <div class="info">
+                <a href="#" class="d-block">{{ app.user.name }} {{ app.user.surname }}</a><br>
+                <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+
+            <li class="mt">
+                <a href="/admin/category">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Category</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="/admin/house">
+                    <i class="fa fa-home"></i>
+                    <span>Houses</span>
+                </a></li>
+            <li class="sub-menu">
+                <a href="/admin/user">
+                    <i class="fa fa-user"></i>
+                    <span>Users</span>
+                </a></li>
+            <li class="sub-menu">
+                <a href="/admin/messages">
+                    <i class="fa fa-envelope-o"></i>
+                    <span>Messages</span>
+                </a></li>
+            <li class="sub-menu">
+                <a href="/admin/comment">
+                    <i class="fa fa-comment"></i>
+                    <span>User Comments</span>
+                </a></li>
+            <li class="sub-menu">
+                <a href="/admin/setting">
+                    <i class="fa fa-book"></i>
+                    <span>Settings</span>
+                </a></li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

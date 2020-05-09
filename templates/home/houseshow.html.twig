@@ -1,0 +1,180 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{house.title}}{% endblock %}
+{% block keywords %}{{house.keywords}}{% endblock %}
+{% block description %}{{house.description}}{% endblock %}
+
+{% block body %}
+    <section class="breadcumb-area bg-img" style="background-image: url({{ asset('assets') }}/home/img/bg-img/hero1.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">{{house.title}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="south-blog-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-7">
+                    <!-- ##### Tabs ##### -->
+                    <div class="col-lg-12">
+
+                        <!-- Single Listings Slides -->
+                        <div class="single-listings-sliders owl-carousel">
+                            {% for rs in images %}
+                                <img src="{{ asset('uploads/images/'~rs.image)}}" style="height: 350px;width: 1500px;" alt=""/>
+
+                            {% endfor %}
+                        </div>
+                        <div class="col-12">
+                            <div class="south-tabs-content">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">Comments</a>
+                                    </li>
+
+
+                                </ul>
+
+                                <div class="tab-content mb-100" id="myTabContent">
+                                    <div class="tab-pane fade" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                                        <div class="south-tab-content">
+                                            <!-- Tab Text -->
+                                            <div class="south-tab-text">
+                                                <h6>House Comments</h6>
+                                                {% for rs in comments %}
+                                                    <h5>{{ rs.subject }} [Rate:{{ rs.rate }}]</h5>
+                                                    <p>{{ rs.comment }}</p>
+                                                    <hr>
+
+                                                {% endfor %}
+                                                {% if app.user %}
+                                                <h5>Write You Comment</h5>
+                                                {{ include('messages.html.twig') }}
+
+                                                <div class="col-auto">
+
+                                                </div>
+                                                <form name="comment" method="post" action="{{ path('user_new_comment',{'id':house.id}) }}">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="comment[subject]" id="comment_subject" placeholder="Konu">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select id="comment_rate" name="comment[rate]" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea class="text" name="comment[comment]" id="comment_comment" cols="30" rows="10" placeholder="Yorum Yazınız..."></textarea>
+                                                    </div>
+
+                                                    <input type="hidden" name="token" value="{{ csrf_token('comment') }}"/>
+                                                    <button type="submit" class="btn south-btn">Yorum Gönder</button>
+                                                </form>
+                                                {% else %}
+                                                    <li><a href="/loginuser">If you want to add comment please login</a></li>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade show active" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                                        <div class="south-tab-content">
+                                            <!-- Tab Text -->
+                                            <div class="south-tab-text">
+                                                <h6>Houses Detail</h6>
+                                                <p>{{house.detail | raw}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col">
+                    <div class="single-blog-area mb-50">
+                        <h1>{{house.title}}</h1>
+
+                        <table class="table">
+                            <tbody>
+
+                            <tr>
+                                <th>Title</th>
+                                <td>{{ house.title }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Description</th>
+                                <td>{{ house.description }}</td>
+                            </tr>
+
+                            <tr>
+                                <th>M2</th>
+                                <td>{{ house.m2 }}</td>
+                            </tr>
+                            <tr>
+                                <th>Oda</th>
+                                <td>{{ house.oda }}</td>
+                            </tr>
+                            <tr>
+                                <th>Banyo</th>
+                                <td>{{ house.banyo }}</td>
+                            </tr>
+                            <tr>
+                                <th>Mutfak</th>
+                                <td>{{ house.mutfak }}</td>
+                            </tr>
+                            <tr>
+                                <th>Kat</th>
+                                <td>{{ house.kat }}</td>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <td>{{ house.address }}</td>
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <td>{{ house.phone }} / {{ house.country }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fax</th>
+                                <td>{{ house.fax }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ house.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Price</th>
+                                <td>{{ house.price }}</td>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <td>{{ house.city }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}New House{% endblock %}
+
+{% block body %}
+<section class="breadcumb-area bg-img" style="background-image: url({{ asset('assets') }}/home/img/bg-img/hero1.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcumb-content">
+                    <h3 class="breadcumb-title">Edit House</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="south-blog-area section-padding-100">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-lg-8">
+                <div class="single-blog-area mb-50">
+
+    {{ include('house/_form.html.twig') }}
+
+    <a href="{{ path('user_house_index') }}">back to list</a>
+                </div>
+            </div>
+
+            {{ include('user/usermenu.html.twig') }}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- ##### Hero Area Start ##### -->
+<section class="hero-area">
+    <div class="hero-slides owl-carousel">
+        {% for rs in slider %}
+        <!-- Single Hero Slide -->
+            <a href="{{ path ('house_show',{'id':rs.id}) }}">
+                <div class="single-hero-slide bg-img" href="{{ path ('house_show',{'id':rs.id}) }}"style="background-image: url({{ asset('uploads/images/'~ rs.image) }});">
+
+
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <div class="hero-slides-content">
+                            <h2 data-animation="fadeInUp" data-delay="100ms">{{rs.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    {% endfor %}
+            </a>
+    </div>
+</section>
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}South - Real Estate Agency{% endblock %}</title>
+        <meta name="description" content="{% block description %}En uygun evler{% endblock %}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="{% block keywords %}ev,satılık,ilan,villa,ucuz,daire{% endblock %}">
+        <meta name="author" content="Cansu Eraslan">
+
+        {% block head %}{% include('home/head.html.twig') %}{% endblock %}
+        {% block stylesheet %}{% endblock %}
+    </head>
+    <body>
+        {% block header %}{% include('home/header.html.twig') %}{% endblock %}
+
+        {% block slider %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block footer %}{% include('home/footer.html.twig') %}{% endblock %}
+        {% block javascripts %}{% include('home/javascript.html.twig') %}{% endblock %}
+    </body>
+</html>

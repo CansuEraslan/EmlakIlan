@@ -1,0 +1,135 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}House{% endblock %}
+
+{% block body %}
+<section class="breadcumb-area bg-img" style="background-image: url({{ asset('assets') }}/home/img/bg-img/hero1.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcumb-content">
+                    <h3 class="breadcumb-title">User House Detail</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="south-blog-area section-padding-100">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-lg-8">
+                <div class="single-blog-area mb-50">
+    <h1>House</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ house.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ house.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ house.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ house.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ house.image }}</td>
+            </tr>
+            <tr>
+                <th>M2</th>
+                <td>{{ house.m2 }}</td>
+            </tr>
+            <tr>
+                <th>Oda</th>
+                <td>{{ house.oda }}</td>
+            </tr>
+            <tr>
+                <th>Banyo</th>
+                <td>{{ house.banyo }}</td>
+            </tr>
+            <tr>
+                <th>Mutfak</th>
+                <td>{{ house.mutfak }}</td>
+            </tr>
+            <tr>
+                <th>Kat</th>
+                <td>{{ house.kat }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ house.address }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ house.phone }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ house.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ house.email }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ house.price }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ house.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ house.country }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ house.location }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ house.status }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ house.createdAt ? house.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ house.updatedAt ? house.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ house.detail }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ house.userid }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_house_index') }}">back to list</a>
+
+    <a href="{{ path('user_house_edit', {'id': house.id}) }}">edit</a>
+
+    {{ include('house/_delete_form.html.twig') }}
+                </div>
+            </div>
+
+            {{ include('user/usermenu.html.twig') }}
+        </div>
+    </div>
+</section>
+{% endblock %}

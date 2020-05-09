@@ -1,0 +1,60 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Messages index{% endblock %}
+
+{% block body %}
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i>Messages List</h3>
+        <div class="row mt">
+            <div class="col-auto">
+
+    <h1>Messages index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Ip</th>
+                <th>Note</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.id }}</td>
+                <td>{{ message.name }}</td>
+                <td>{{ message.subject }}</td>
+                <td>{{ message.message }}</td>
+                <td>{{ message.status }}</td>
+                <td>{{ message.ip }}</td>
+                <td>{{ message.note }}</td>
+                <td>{{ message.createdAt ? message.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ message.updatedAt ? message.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_messages_show', {'id': message.id}) }}"><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
+                    <a href="{{ path('admin_messages_edit', {'id': message.id}) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            </div>
+        </div>
+    </section>
+    <!-- /wrapper -->
+</section>
+    </div>
+
+{% endblock %}

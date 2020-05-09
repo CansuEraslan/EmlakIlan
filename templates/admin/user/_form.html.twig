@@ -1,0 +1,6 @@
+{% form_theme form 'bootstrap_4_layout.html.twig'%}
+<div class="col-auto">
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-round btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

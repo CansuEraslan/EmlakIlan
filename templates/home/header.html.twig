@@ -1,0 +1,63 @@
+<div id="preloader">
+    <div class="south-load"></div>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+
+    <!-- Top Header Area -->
+
+
+    <!-- Main Header Area -->
+    <div class="main-header-area" id="stickyHeader">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="southNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href="/"><img src="{{ asset('assets') }}/home/img/core-img/logo.png" alt=""></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="/">Anasayfa</a></li>
+                            <li><a href="/about">Hakkımızda</a></li>
+                            <li><a href="/gallery">Ilanlar</a></li>
+
+                            <li><a href="/contact">İletişim</a></li>
+
+
+                            {% if app.user %}
+                                <li>
+                                <a href="/user"><img src="{{ asset('uploads/images/' ~ app.user.image) }}" class="img-thumbnail" alt="User Image" width="40">
+                                    {{ app.user.name }}{{ app.user.surname }}</a>
+                                </li>
+                                <li><a href="/logout">Logout</a></li>
+                            {% else %}
+                                <li><a href="/loginuser">Login</a></li>
+                            {% endif %}
+
+                        </ul>
+
+
+
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

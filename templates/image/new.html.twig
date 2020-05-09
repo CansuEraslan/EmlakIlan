@@ -1,0 +1,68 @@
+<!-- Favicons -->
+<link href="{{ asset('assets') }}/admin/img/favicon.png" rel="icon">
+<link href="{{ asset('assets') }}/admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Bootstrap core CSS -->
+<link href="{{ asset('assets') }}/admin/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--external css-->
+<link href="{{ asset('assets') }}/admin/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<!-- Custom styles for this template -->
+<link href="{{ asset('assets') }}/admin/css/style.css" rel="stylesheet">
+<link href="{{ asset('assets') }}/admin/css/style-responsive.css" rel="stylesheet">
+<!--ADVANCED FILE INPUT-->
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="form-panel">
+            <form role="form" name="image" action="{{ path('user_image_new',{'id':id}) }}" method="post" enctype="multipart/form-data" class="form-horizontal style-form">
+                <div class="form-group">
+
+                    <div class="col-sm-5">
+                        <label class="control-label col-md-11">Title</label>
+                        <input class="form-control" type="text" id="image_title" name="image[title]" maxlength="30">
+                        <input type="hidden" id="image_house" name="image[house]" class="form-control" value="{{ id }}">
+                    </div>
+                </div>
+                <div class="form-group last">
+                    <div class="col-sm-5">
+                    <label class="control-label col-md-11">Gallery Image</label>
+                        <input class="custom-file-input" type="file" id="image_image" name="image[image]">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Image</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for image in images %}
+    <tr>
+        <td>{{ image.id }}</td>
+        <td>{{ image.title }}</td>
+        <td><img src="{{ asset('uploads/images/'~ image.image) }}" height="60"></td>
+        <td>
+            <form method="post" action="{{ path('user_image_delete', {'id': image.id,'hid': id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                <button class="btn-danger">Delete</button>
+            </form>
+
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="4">no records found</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

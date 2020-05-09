@@ -1,0 +1,115 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}House{% endblock %}
+
+{% block body %}
+    <section id="main-content" xmlns="http://www.w3.org/1999/html">
+        <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Show House Page</h3>
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <h1>House</h1>
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ house.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ house.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Keywords</th>
+                            <td>{{ house.keywords }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ house.description }}</td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td><img src="{{asset('uploads/images/'~house.image )}}" height="100"></td>
+                        </tr>
+                        <tr>
+                            <th>M2</th>
+                            <td>{{ house.m2 }}</td>
+                        </tr>
+                        <tr>
+                            <th>Kat</th>
+                            <td>{{ house.kat }}</td>
+                        </tr>
+                        <tr>
+                            <th>Oda</th>
+                            <td>{{ house.oda }}</td>
+                        </tr>
+                        <tr>
+                            <th>Banyo</th>
+                            <td>{{ house.banyo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Mutfak</th>
+                            <td>{{ house.mutfak }}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>{{ house.address }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>{{ house.phone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fax</th>
+                            <td>{{ house.fax }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ house.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>{{ house.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{ house.city }}</td>
+                        </tr>
+                        <tr>
+                            <th>Country</th>
+                            <td>{{ house.country }}</td>
+                        </tr>
+                        <tr>
+                            <th>Location</th>
+                            <td>{{ house.location }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{{ house.status }}</td>
+                        </tr>
+                        <tr>
+                            <th>Created_at</th>
+                            <td>{{ house.createdAt ? house.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Updated_at</th>
+                            <td>{{ house.updatedAt ? house.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group">
+                        <a href="{{ path('admin_house_index') }}"><button type="button" class="btn btn-theme02">Back to list</button></a>
+                        <a href="{{ path('admin_house_edit', {'id': house.id}) }}"><button type="button" class="btn btn-theme03">Edit </button></a>
+                    </div>
+
+
+
+                    {{ include('admin/house/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </section>
+        <!-- /wrapper -->
+    </section>
+    </div>
+{% endblock %}

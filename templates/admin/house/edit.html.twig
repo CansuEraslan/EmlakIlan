@@ -1,0 +1,27 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit House{% endblock %}
+
+{% block body %}
+    <section id="main-content" xmlns="http://www.w3.org/1999/html">
+        <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Edit House Page</h3>
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <h1>Edit House</h1>
+
+                    {{ include('admin/house/_form.html.twig', {'button_label': 'Update'}) }}
+                    <div class="btn-group">
+                        <a href="{{ path('admin_house_index') }}"><button type="button" class="btn btn-theme02">Back to list</button></a>
+                    </div>
+
+
+
+                    {{ include('admin/house/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </section>
+        <!-- /wrapper -->
+    </section>
+    </div>
+{% endblock %}

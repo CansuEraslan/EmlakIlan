@@ -1,0 +1,164 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}About Us | {{ setting[0].title }}{% endblock %}
+{% block keywords %}{{ setting[0].keywords }}{% endblock %}
+{% block descriptions %}{{ setting[0].description }}{% endblock %}
+
+{% block body %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img" style="background-image: url({{ asset('assets') }}/home/img/bg-img/hero1.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">Hakkımızda</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### About Content Wrapper Start ##### -->
+    <section class="about-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+
+                    <div class="about-content">
+                       {{setting[0].aboutus|raw}}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="section-heading text-left wow fadeInUp" data-wow-delay="250ms">
+                        <h3>Öne Çıkan İlanlar</h3></div>
+
+                    <div class="featured-properties-slides owl-carousel wow fadeInUp" data-wow-delay="350ms">
+
+                        <!-- Single Slide -->{% for rs in houses %}
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="{{ asset('uploads/images/'~ rs.image) }}" alt="">
+
+                                <div class="tag">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>{{ rs.price}} TL</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>{{rs.title}}</h5>
+                                <p class="location"><img src="{{ asset('assets') }}/home/img/icons/location.png" alt="">{{rs.address}}</p>
+                                <p>{{rs.description}}</p>
+                                <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                    <div class="new-tag">
+                                        <img src="{{ asset('assets') }}/home/img/icons/new.png" alt="">
+                                    </div>
+                                    <div class="bathroom">
+                                        <img src="{{ asset('assets') }}/home/img/icons/bathtub.png" alt="">
+                                        <span>{{rs.banyo}}</span>
+                                    </div>
+                                    <div class="garage">
+                                        <img src="{{ asset('assets') }}/home/img/icons/garage.png" alt="">
+                                        <span>{{rs.oda}}</span>
+                                    </div>
+                                    <div class="space">
+                                        <img src="{{ asset('assets') }}/home/img/icons/space.png" alt="">
+                                        <span>{{rs.m2 }} m2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ##### Meet The Team Area Start ##### -->
+    <section class="meet-the-team-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>Ekibimizle Tanışın</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="250ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="{{ asset('assets') }}/home/img/bg-img/team1.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="{{ asset('assets') }}/home/img/icons/prize.png" alt="">
+                                <h2>Jeremy Scott</h2>
+                                <p>Satıcı</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="{{ asset('assets') }}/home/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="{{ asset('assets') }}/home/img/icons/envelope.png" alt=""> jeremy@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="{{ asset('assets') }}/home/img/bg-img/team2.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="{{ asset('assets') }}/home/img/icons/prize.png" alt="">
+                                <h2>Maria Williams</h2>
+                                <p>Satıcı</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="{{ asset('assets') }}/home/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="{{ asset('assets') }}/home/img/icons/envelope.png" alt=""> maria@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="750ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="{{ asset('assets') }}/home/img/bg-img/team3.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="{{ asset('assets') }}/home/img/icons/prize.png" alt="">
+                                <h2>Patrick Joe</h2>
+                                <p>Satıcı</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="{{ asset('assets') }}/home/img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="{{ asset('assets') }}/home/img/icons/envelope.png" alt=""> patrick@gmail.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Meet The Team Area End ##### -->
+{% endblock %}

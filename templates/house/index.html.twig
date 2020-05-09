@@ -1,0 +1,101 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin(windowURL, windowName, windowFeatures){ window.open(windowURL, windowName, windowFeatures);}
+    </SCRIPT>
+    <section class="breadcumb-area bg-img" style="background-image: url({{ asset('assets') }}/home/img/bg-img/hero1.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">User Profile Information</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="south-blog-area section-padding-100">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-lg-8">
+                    <div class="single-blog-area mb-50">
+                        <a href="{{ path('user_house_new') }}"><button type="button" class="btn-dark">Create new</button></a>
+
+                        <table class="table table-striped table-advance table-hover">
+
+                            <thead>
+                            <tr>
+
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>M2</th>
+                                <th>Kat</th>
+                                <th>Oda</th>
+                                <th>Banyo</th>
+                                <th>Mutfak</th>
+
+
+
+                                <th>Price</th>
+
+
+
+                                <th>I.Gallery</th>
+
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for house in houses %}
+                                <tr>
+
+                                    <td>{{ house.title }}</td>
+                                    <td><img src="{{asset('uploads/images/'~house.image )}}" style="height:20px"></td>
+                                    <td>{{ house.m2 }}</td>
+                                    <td>{{ house.kat }}</td>
+                                    <td>{{ house.oda }}</td>
+                                    <td>{{ house.banyo }}</td>
+                                    <td>{{ house.mutfak }}</td>
+
+
+
+                                    <td>{{ house.price }}</td>
+
+
+                                    <td>
+                                        <a href="javascript:openWin('{{ path('user_image_new',{'id':house.id}) }}','','toolbar=no,location=no,directories=0,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                                            <img src="{{ asset('assets/admin/img') }}/gallery.png" style="height:20px">
+                                        </a>
+                                    </td>
+
+
+
+                                    <td>
+                                        <a href="{{ path('user_house_show', {'id': house.id}) }}"><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
+
+                                        <a href="{{ path('user_house_edit', {'id': house.id}) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                    </td>
+
+
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="22">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {{ include('user/usermenu.html.twig') }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

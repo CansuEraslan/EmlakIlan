@@ -1,0 +1,22 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Setting{% endblock %}
+
+{% block body %}
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Edit Category Page</h3>
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <h1>Create new Setting</h1>
+
+                    {{ include('admin/setting/_form.html.twig') }}
+
+                    <a href="{{ path('setting_index') }}">back to list</a>
+                </div>
+            </div>
+        </section>
+        <!-- /wrapper -->
+    </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<div class="col-12 col-lg-4">
+    <div class="blog-sidebar-area">
+
+
+        <!-- Catagories Widget -->
+        <div class="south-catagories-card mb-70">
+            <h5>User Menu</h5>
+            <img src="{{ asset('uploads/images/' ~ app.user.image) }}" class="img-thumbnail" alt="User Image" width="80px"> {{ app.user.name }} {{ app.user.surname }}
+            <ul class="catagories-menu">
+                <li><a href="/user">My Profile</a></li>
+                <li><a href="/user/house">My Houses</a></li>
+                <li><a href="/user/comments">My Comments</a></li>
+
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
